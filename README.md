@@ -15,6 +15,8 @@ rm -rf github_repo;
 done < git_repos.txt > results.txt
 ```
 
+If you want to run it on a local repo, or just a single already downloaded but cloned repo, run `bash ./hofs-churn path-to-git-repo github-repo-name;`
+
 The results will be in results.txt (example output shown below):
 
 ```
