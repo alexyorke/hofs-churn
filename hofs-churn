@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+set -o pipefail
+
+cd "$1"
+
+# total deletions plus total additions. Git attempts to ignore renaming/moving files, but there is a limit.
+# please see the readme for more information
+TOTAL_CHANGES="$(git log --all --numstat --pretty="%H" | awk 'NF==3 {plus+=$1; minus+=$2} NF==1 {total++} END {printf("%d\n", plus+minus)}')"
+
+# total lines in the source code, minus any files gitignore'd (this will slightly change the ratio as per defined in the article, but make it more accurate)
+TOTAL_LINES="$(cloc --vcs=git . | tail -n 2 | head -n 1 | awk '{print $NF}')"
+
+# calculate the ratio
+echo "scale=2 ; $TOTAL_CHANGES / $TOTAL_LINES" | bc | tr '\n' ':1'
+echo "$2"
