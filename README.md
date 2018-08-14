@@ -1,6 +1,8 @@
 # hofs-churn
 Approximate code churn as described by Brikman's article https://www.ybrikman.com/writing/2018/08/12/the-10-to-1-rule-of-writing-and-programming/
 
+
+warning: this may not be accurate. The code is under investigation to determine the problem
 ## Requirements
 
 cloc (apt-get install cloc)
