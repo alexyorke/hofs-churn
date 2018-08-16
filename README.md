@@ -5,10 +5,18 @@ Approximate code churn as described by Brikman's article https://www.ybrikman.co
 
 ## Requirements
 
-cloc (apt-get install cloc)
+bc
+* `apt-get install bc`
 
-git (apt-get install git)
+cloc
+* `apt-get install cloc`
 
+git
+* `apt-get install git`
+
+git-quick-stats
+* `git clone https://github.com/arzzen/git-quick-stats.git && cd git-quick-stats`
+* `sudo make install`
 
 ## How to use
 
