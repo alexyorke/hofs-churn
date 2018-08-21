@@ -205,6 +205,15 @@ caesar0301/awesome-public-datasets
 10.85:brave/browser-laptop
 ```
 
+## Docker
+
+```
+docker build -t bbartolome/hofs-churn .
+docker run -it --rm bbartolome/hofs-churn bash
+git clone https://github.com/${GH_USER}/${GH_REPO}.git
+bash ./hofs-churn $(pwd)/${GH_REPO} ${GH_REPO}
+```
+
 ## FAQ
 
 ### Git gets stuck trying to compute the renames but then aborts as it's over a pre-determined limit
