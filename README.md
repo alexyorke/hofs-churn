@@ -5,18 +5,15 @@ Approximate code churn as described by Brikman's article https://www.ybrikman.co
 
 ## Requirements
 
-bc
-* `apt-get install bc`
+Want to get started faster? Just run `sudo bash setup.sh` to install all of these requirements.
 
-cloc
-* `apt-get install cloc`
+tokei
+* `wget -O - https://github.com/Aaronepower/tokei/releases/download/v7.0.3/tokei-v7.0.3-x86_64-unknown-linux-gnu.tar.gz | gunzip -c | tar xvf - > /tmp/tokei`
+* `chmod a+x /tmp/tokei`
+* `mv /tmp/tokei /usr/bin/`
 
 git
 * `apt-get install git`
-
-git-quick-stats
-* `git clone https://github.com/arzzen/git-quick-stats.git && cd git-quick-stats`
-* `sudo make install`
 
 ## How to use
 
@@ -210,10 +207,6 @@ caesar0301/awesome-public-datasets
 
 ## FAQ
 
-### Cloc says something about recursive regex being exceeded
-
-This does not appear to change the total lines counted, so the error should be ignored.
-
 ### Git gets stuck trying to compute the renames but then aborts as it's over a pre-determined limit
 
 Run `git config --global merge.renameLimit 999999` and `git config --global diff.renameLimit 999999` (run at your own risk!)  This will greatly increase processing time for larger repos. https://stackoverflow.com/questions/7830728/
@@ -224,11 +217,7 @@ You can run `hofs-churn` with the `timeout` command (get it from apt-get install
 
 ## Git says there's an error when cloning a file
 
-It appears to be something with unicode. It appears to be with `.xcodeproj` files and other non-important files, but otherwise the rest of the clone should complete ok.
-
-## Git repos containing a single file have their ratio incorrectly counted
-
-There's an option to `cloc` which outputs the sum irregardless of how many files were counted. I'll have to add it in at some point.
+It appears to be something with unicode, usually with a `.xcodeproj` files and other non-important files, but otherwise the rest of the clone should complete ok.
 
 ## Whoa, I've cloned a massive repo and I'm out of space. How do I avoid large repos?
 
