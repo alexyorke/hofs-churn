@@ -12,4 +12,5 @@ TOTAL_CHANGES="$(git log --no-merges --numstat --oneline | LC_ALL=C grep '^[0-9]
 TOTAL_LINES="$(tokei . | tail -n 2 | head -n 1 | awk '{print $NF}')"
 
 # calculate the ratio
-awk "BEGIN { print "$TOTAL_CHANGES/$TOTAL_LINES" } END";
+echo -n "$2:"
+echo "$TOTAL_CHANGES/$TOTAL_LINES" | bc -l
